@@ -66,7 +66,7 @@ if (isset($_POST['userid'])) {
 
       </div>
     </div>
-    <div class="row mt-3 d-flex justify-content-center">
+    <div class="row mt-2 d-flex justify-content-center">
       <!-- card -->
       <div class="col-lg-8">
         <div class="card">
