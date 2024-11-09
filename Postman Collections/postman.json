@@ -48,7 +48,43 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{baseUrl}}/api/user",
+						"url": {
+							"raw": "{{baseUrl}}/api/users?page=1&perPage=10&orderBy=&sortDirection=desc&search=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "optional"
+								},
+								{
+									"key": "perPage",
+									"value": "10",
+									"description": "optional"
+								},
+								{
+									"key": "orderBy",
+									"value": "",
+									"description": "optional"
+								},
+								{
+									"key": "sortDirection",
+									"value": "desc",
+									"description": "optional | asc = ascending | desc = descending"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "optional"
+								}
+							]
+						},
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
@@ -146,7 +182,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"akb\",\r\n    \"email\" : \"akbar@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -251,7 +287,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"akbar2\",\r\n    \"email\" : \"akbar2@gmail.com\",\r\n    // \"password\":\"password\",\r\n    // \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"akbar2\",\r\n    \"email\" : \"akbar2@gmail.com\",\r\n    \"password\":\"password\", // ISI HANYA JIKA INGIN GANTI PASSWORD\r\n    \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -306,6 +342,118 @@
 						},
 						{
 							"id": "3fcb50c1-3858-4866-b89c-08e3a34939f7",
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "https://api.getpostman.com/me"
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aca4a487-5ce2-43d8-96ca-95c109dd90b2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3b3f0a1d-37f9-44e1-ac7c-73e99b80cccc",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "8820b64e-8005-410d-b708-d4e100de6332",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						},
+						"description": "Gets information about the authenticated user."
+					},
+					"response": [
+						{
+							"id": "ade8141d-a35b-48eb-a820-cd8b8a3f090a",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "https://api.getpostman.com/me"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"user\": {\n        \"id\": 12345678,\n        \"username\": \"taylor-lee\",\n        \"email\": \"taylor.lee@example.com\",\n        \"fullName\": \"Taylor Lee\",\n        \"avatar\": \"https://example.com/user/r5u9qpvmujfjf6lbqmga.jpg\",\n        \"isPublic\": true\n    },\n    \"operations\": [\n        {\n            \"name\": \"mock_usage\",\n            \"limit\": 1000000,\n            \"usage\": 110276,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"monitor_request_runs\",\n            \"limit\": 10000000,\n            \"usage\": 1141750,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"api_usage\",\n            \"limit\": 1000000,\n            \"usage\": 16240,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"custom_domains\",\n            \"limit\": 25,\n            \"usage\": 25,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"serverless_requests\",\n            \"limit\": 10000,\n            \"usage\": 0,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"integrations\",\n            \"limit\": 5000,\n            \"usage\": 1018,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"cloud_agent_requests\",\n            \"limit\": 1000000,\n            \"usage\": 1615,\n            \"overage\": 0\n        }\n    ]\n}"
+						},
+						{
+							"id": "5ea633c3-1b18-48ef-b584-98e6e7dedf44",
 							"name": "Rate Limit Exceeded",
 							"originalRequest": {
 								"method": "GET",
