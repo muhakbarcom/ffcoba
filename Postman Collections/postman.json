@@ -26,26 +26,18 @@
 					],
 					"id": "383e12c4-6737-495b-b3e2-b1e79dd4dfb7",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
-						"url": {
-							"raw": "https://api.getpostman.com/me?foo=bass",
-							"protocol": "https",
-							"host": [
-								"api",
-								"getpostman",
-								"com"
-							],
-							"path": [
-								"me"
-							],
-							"query": [
-								{
-									"key": "foo",
-									"value": "bass"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    // \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
+						"url": "http://127.0.0.1:8000/api/login",
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
