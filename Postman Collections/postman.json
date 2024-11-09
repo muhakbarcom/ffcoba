@@ -8,6 +8,12 @@
 	"item": [
 		{
 			"name": "User",
+			"item": [],
+			"id": "69cd5bc3-b36b-4ee8-9eba-35eab333c0a0",
+			"description": "The `/me` endpoints let you manage information about the authenticated user."
+		},
+		{
+			"name": "Auth",
 			"item": [
 				{
 					"name": "Login",
@@ -19,9 +25,21 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"    // Parse the JSON response\r",
+									"    var jsonData = pm.response.json();\r",
 									"\r",
-									"    var token = pm.response.data.token;\r",
-									"    pm.environment.set(\"token\", token);\r",
+									"    // Access the token from the nested JSON structure\r",
+									"    if (jsonData.isSuccess && jsonData.data && jsonData.data.token) {\r",
+									"        var token = jsonData.data.token;\r",
+									"        \r",
+									"        // Set the token in the environment\r",
+									"        pm.environment.set(\"token\", token);\r",
+									"    } else {\r",
+									"        pm.test(\"Token is missing in response\", function () {\r",
+									"            pm.expect(jsonData.data.token).to.not.be.undefined;\r",
+									"        });\r",
+									"    }\r",
 									"});\r",
 									""
 								],
@@ -32,8 +50,12 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"packages": {},
-								"type": "text/javascript"
+								"id": "3b3f0a1d-37f9-44e1-ac7c-73e99b80cccc",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -109,10 +131,105 @@
 							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
 						}
 					]
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aca4a487-5ce2-43d8-96ca-95c109dd90b2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3b3f0a1d-37f9-44e1-ac7c-73e99b80cccc",
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "2898e4ec-4f5d-4782-a26b-d6b309c1b18b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{baseUrl}}/api/logout",
+						"description": "Gets information about the authenticated user."
+					},
+					"response": [
+						{
+							"id": "0741bc1d-90fa-4634-b0c4-d40f71224315",
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "https://api.getpostman.com/me"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"user\": {\n        \"id\": 12345678,\n        \"username\": \"taylor-lee\",\n        \"email\": \"taylor.lee@example.com\",\n        \"fullName\": \"Taylor Lee\",\n        \"avatar\": \"https://example.com/user/r5u9qpvmujfjf6lbqmga.jpg\",\n        \"isPublic\": true\n    },\n    \"operations\": [\n        {\n            \"name\": \"mock_usage\",\n            \"limit\": 1000000,\n            \"usage\": 110276,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"monitor_request_runs\",\n            \"limit\": 10000000,\n            \"usage\": 1141750,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"api_usage\",\n            \"limit\": 1000000,\n            \"usage\": 16240,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"custom_domains\",\n            \"limit\": 25,\n            \"usage\": 25,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"serverless_requests\",\n            \"limit\": 10000,\n            \"usage\": 0,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"integrations\",\n            \"limit\": 5000,\n            \"usage\": 1018,\n            \"overage\": 0\n        },\n        {\n            \"name\": \"cloud_agent_requests\",\n            \"limit\": 1000000,\n            \"usage\": 1615,\n            \"overage\": 0\n        }\n    ]\n}"
+						},
+						{
+							"id": "28f46d4c-976c-4a7a-90bf-93da1945854b",
+							"name": "Rate Limit Exceeded",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "https://api.getpostman.com/me"
+							},
+							"status": "Too Many Requests",
+							"code": 429,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"error\": \"rateLimited\",\n    \"message\": \"Rate limit exceeded. Please retry after 1669048687\"\n}"
+						}
+					]
 				}
 			],
-			"id": "69cd5bc3-b36b-4ee8-9eba-35eab333c0a0",
-			"description": "The `/me` endpoints let you manage information about the authenticated user."
+			"id": "717358e7-2ffb-44de-a01f-f082a7c132b4"
 		}
 	],
 	"auth": {
