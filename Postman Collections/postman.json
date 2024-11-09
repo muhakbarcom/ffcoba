@@ -30,14 +30,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    // \"password\":\"password\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://127.0.0.1:8000/api/login",
+						"url": "http://backend-tajaherang.test/api/login",
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
