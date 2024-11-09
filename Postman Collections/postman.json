@@ -258,7 +258,24 @@
 								}
 							}
 						},
-						"url": "{{baseUrl}}/api/users",
+						"url": {
+							"raw": "{{baseUrl}}/api/users/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "id user"
+								}
+							]
+						},
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
