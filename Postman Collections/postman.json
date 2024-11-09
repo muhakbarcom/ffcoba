@@ -33,14 +33,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"raw": "{\r\n    \"email\" : \"admin@gmail.com\"\r\n    \"password\":\"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{baseUrl}}/api/login",
+						"url": "http://backendtajaherang.test/api/login",
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
