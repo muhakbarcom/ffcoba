@@ -251,7 +251,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"akbar2\",\r\n    \"email\" : \"akbar2@gmail.com\",\r\n    // \"password\":\"password\",\r\n    // \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -271,7 +271,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "",
+									"value": "12",
 									"description": "id user"
 								}
 							]
