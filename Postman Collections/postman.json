@@ -364,7 +364,16 @@
 						},
 						"method": "POST",
 						"header": [],
-						"url": "{{baseUrl}}/api/logout",
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/register",
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
