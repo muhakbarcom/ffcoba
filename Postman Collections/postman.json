@@ -858,13 +858,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/users?page=1&perPage=10&orderBy=&sortDirection=desc&search=",
+							"raw": "{{baseUrl}}/api/roles?page=1&perPage=10&orderBy=&sortDirection=desc&search=",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"users"
+								"roles"
 							],
 							"query": [
 								{
