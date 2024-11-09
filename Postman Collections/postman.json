@@ -271,8 +271,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "12",
-									"description": "id user"
+									"value": "12"
 								}
 							]
 						},
@@ -464,6 +463,14 @@
 							"script": {
 								"id": "aca4a487-5ce2-43d8-96ca-95c109dd90b2",
 								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    \r",
+									"    // Parse the JSON response\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.environment.set(\"token\", \"\");\r",
+									"});\r",
 									""
 								],
 								"type": "text/javascript",
