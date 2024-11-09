@@ -25,6 +25,9 @@
 						}
 					],
 					"id": "383e12c4-6737-495b-b3e2-b1e79dd4dfb7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "POST",
 						"header": [],
