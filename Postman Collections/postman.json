@@ -37,7 +37,7 @@
 								}
 							}
 						},
-						"url": "http://backend-tajaherang.test/api/login",
+						"url": "{{baseUrl}}/api/login",
 						"description": "Gets information about the authenticated user."
 					},
 					"response": [
