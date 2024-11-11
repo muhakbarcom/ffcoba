@@ -24,7 +24,7 @@
 									"    var jsonData = pm.response.json();\r",
 									"\r",
 									"    // Access the token from the nested JSON structure\r",
-									"    if (jsonData.isSuccess && jsonData.data && jsonData.data.token) {\r",
+									"    if (jsonData.status == \"success\" && jsonData.data && jsonData.data.token) {\r",
 									"        var token = jsonData.data.token;\r",
 									"        \r",
 									"        // Set the token in the environment\r",
@@ -271,7 +271,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\"\r\n}",
+							"raw": "{\r\n    \"name\": \"nama1\",\r\n    \"email\" : \"admin2@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -514,7 +514,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"akb\",\r\n    \"email\" : \"akbar@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
+							"raw": "{\r\n    \"name\":\"akb\",\r\n    \"email\" : \"akbars@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\" : \"password\",\r\n    \"role\" : \"admin\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
